@@ -37,12 +37,15 @@ docker-compose exec web python manage migrate
 ```
 * use django project shell to run scraping tests using scraping-example.py
 
+## Scraper UML Class Diagram
+
+![scraper UML](https://github.com/MohAyman3600/soccer_data_DRF/blob/master/Scraper_UML_Class_Diagram.png)
 
 ## Authors
 
 Contributors names and contact info
 
-Mohamed Ayman
+[@Mohamed Ayman](https://www.linkedin.com/in/mohamed-ayman-311628141/)
 
 
 ## Version History
