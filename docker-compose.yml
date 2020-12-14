@@ -6,9 +6,9 @@ services:
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
-      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+      - API_KEY=${API_KEY}
     volumes:
-      - .:/code
+      - .:/app
     ports:
       - 8000:8000
     depends_on:

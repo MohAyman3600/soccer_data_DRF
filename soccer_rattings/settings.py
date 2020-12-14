@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+from django.utils.log import DEFAULT_LOGGING
 import os
+import logging
 from pathlib import Path
+from sentry_sdk.integrations.django import DjangoIntegration
+import sentry_sdk
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,3 +133,71 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Celery Configration
+CELERY_BROKER_URL = 'redis://localhost:7777'
+CELERY_RESULT_BACKEND = 'redis://localhost:7777'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'EET'
+
+# Api-Football-beta paramters
+API_URL = "https://api-football-beta.p.rapidapi.com/"
+API_HEADERS = {
+    'x-rapidapi-key': os.environ.get("API_KEY"),
+    'x-rapidapi-host': "api-football-beta.p.rapidapi.com"
+}
+
+
+sentry_sdk.init(
+    dsn="https://ddef6aa2f44d4c64bbf70de952c44693@o489189.ingest.sentry.io/5550968",
+    integrations=[DjangoIntegration()],
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
+
+LOGGING_CONFIG = None
+logging.config.dictConfig(
+    {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'formatters': {
+            'console': {
+                # exact format is not important, this is the minimum information
+                'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+            },
+            'django.server': DEFAULT_LOGGING['formatters']['django.server'],
+        },
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+                'formatter': 'console',
+            },
+            # Add Handler for Sentry for `warning` and above
+            'sentry': {
+                'level': 'WARNING',
+                'class': 'raven.contrib.django.raven_compat.handlers.SentryHandler',
+            },
+            'django.server': DEFAULT_LOGGING['handlers']['django.server'],
+        },
+        'loggers': {
+            # root logger
+            '': {
+                'level': 'WARNING',
+                'handlers': ['console', 'sentry'],
+            },
+            'ranked': {
+                'level': 'INFO',
+                'handlers': ['console', 'sentry'],
+                # required to avoid double logging with root logger
+                'propagate': False,
+            },
+            'django.server': DEFAULT_LOGGING['loggers']['django.server'],
+        },
+    }
+)
