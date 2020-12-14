@@ -1,6 +1,6 @@
 # Project Title
 
-Django REST API foor fetching soccer data.
+Django REST API for fetching soccer data.
 
 ## Description
 
@@ -37,13 +37,13 @@ docker-compose exec web python manage migrate
 ```
 * use django project shell to run scraping tests using scraping-example.py
 
+
 ## Scraper UML Class Diagram
 
 ![scraper UML](https://github.com/MohAyman3600/soccer_data_DRF/blob/master/Scraper_UML_Class_Diagram.png)
 
-## Authors
 
-Contributors names and contact info
+## Authors
 
 [@Mohamed Ayman](https://www.linkedin.com/in/mohamed-ayman-311628141/)
 
@@ -55,6 +55,6 @@ Contributors names and contact info
 
 ## License
 
-This project is licensed under the [mit] License - see the LICENSE.md file for details
+This project is licensed under the [MIT] License - see the LICENSE.md file for details
 
 
