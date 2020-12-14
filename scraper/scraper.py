@@ -159,7 +159,10 @@ class Scraper(BaseScraper, ModelInfoExtractor, ModelBuilder):
         return formated_data
 
     def save_objects(self, response_objects=None, serializer_class=None):
-        """Fetch objects form the API and save them."""
+        """
+        Fetch objects form the API and save them,
+        returning a dictionary of created or updated objects.
+        """
         assert hasattr(self, 'Meta'), (
             'Class {scraper_class} missing "Meta" attribute'.format(
                 scraper_class=self.__class__.__name__

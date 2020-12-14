@@ -41,7 +41,10 @@ class ModelBuilder(object):
     """Boundary class to build model data from scraped data."""
 
     def create_or_update(self, serializer_class, data, instance=None):
-        """Create object using serializer class."""
+        """
+        Create object using serializer class.
+        Return object instance if succeded, or False if validation error.
+        """
         if instance is None:
             serializer = serializer_class(data=data)
         else:
@@ -55,7 +58,10 @@ class ModelBuilder(object):
             return False
 
     def perform_operation(self, serializer_class, non_rel_fields, data):
-        """Perform update or create operation for one object."""
+        """
+        Perform update or create operation for one object.
+        Returning tuple(object, operation) if succeded, or tuple(False, opertation) if failed.
+        """
         non_rel_data = {x: data[x] for x in non_rel_fields}
         model_class = serializer_class.Meta.model
         primary_key_field = model_class._meta.pk.name
