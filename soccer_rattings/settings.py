@@ -165,7 +165,7 @@ API_HEADERS = {
 
 
 sentry_sdk.init(
-    dsn="https://ddef6aa2f44d4c64bbf70de952c44693@o489189.ingest.sentry.io/5550968",
+    dsn=os.environ.get("SENTRY_DSN")
     integrations=[DjangoIntegration()],
     traces_sample_rate=1.0,
 
