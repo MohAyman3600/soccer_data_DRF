@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     # third-party
     'rest_framework',
     'django_celery_results',
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'soccer_rattings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DDATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
