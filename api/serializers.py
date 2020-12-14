@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 def update_or_create(model, data, id_field):
     try:
         obj = model.objects.get(pk=data[id_field])
-    except Player.DoesNotExist:
+    except model.DoesNotExist:
         obj = model.objects.create(**data)
         return obj
     data.pop(id_field)
