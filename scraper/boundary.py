@@ -1,8 +1,6 @@
 """Module for boundary classes interacting with Django classes."""
-from api.models import League, PlayerStats, TeamStats
+from api.models import PlayerStats, TeamStats
 import logging
-from django.core.exceptions import ValidationError
-from rest_framework.utils import model_meta
 
 logger = logging.getLogger(__name__)
 
