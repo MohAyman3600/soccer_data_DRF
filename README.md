@@ -4,11 +4,7 @@ Django REST API for fetching soccer data.
 
 ## Description
 
-An API which was built using DRF to scrape Football players and teams statitics from [Api-Football-Beta](https://rapidapi.com/api-sports/api/api-football-beta) and save it into a Postgres database.
-It uses a customized scraper to fetch and save the data; Uses Celery task scheduler, with Redis as broker, for fetching and saving these data.
-Also, the project has logging and redis cache setup; in addition to, Sentry error tracking system.
-The main purpose of the project was to provide a Python Django interface, for fetching soccer statistics, to be used as backend in custom projects.
-
+An API built using DRF to scrape Football players and teams statistics from Api-Football-Beta and save it into a Postgres database. It uses a customized scraper to fetch and save the data; Uses Celery task scheduler, with Redis as a broker, for fetching and saving these data. Also, the project has a logging and Redis cache setup; in addition to, Sentry error tracking system. The main purpose of the project was to provide a Python Django interface, for fetching soccer statistics, to be used as a backend in custom projects.
 ## Getting Started
 
 ### Dependencies
