@@ -25,11 +25,11 @@ docker-compose up --build -d
 ```
 * run 
 ```
-docker-compose exec web python manage makemigrations api
+docker-compose exec web python manage.py makemigrations api
 ```
 * run 
 ```
-docker-compose exec web python manage migrate
+docker-compose exec web python manage.py migrate
 ```
 * use django project shell to run scraping tests using scraping-example.py
 
@@ -41,7 +41,7 @@ docker-compose exec web python manage migrate
 
 ## Authors
 
-[@Mohamed Ayman](https://www.linkedin.com/in/mohamed-ayman-311628141/)
+[@Mohamed Ayman](https://www.linkedin.com/in/mohayman3600/)
 
 
 ## Version History
