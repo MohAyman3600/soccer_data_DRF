@@ -1,10 +1,10 @@
-# Project Title
+# Soccer Datat Scraper
 
 Django REST API for fetching soccer data.
 
 ## Description
 
-An API built using DRF to scrape Football players and teams statistics from Api-Football-Beta and save it into a Postgres database. It uses a customized scraper to fetch and save the data; Uses Celery task scheduler, with Redis as a broker, for fetching and saving these data. Also, the project has a logging and Redis cache setup; in addition to, Sentry error tracking system. The main purpose of the project was to provide a Python Django interface, for fetching soccer statistics, to be used as a backend in custom projects.
+An API built using DRF to scrape Football players' and teams' statistics from Api-Football-Beta and save it into a Postgres database. It uses a customized scraper to fetch and save the data; Uses the Celery task scheduler, with Redis as a broker, for fetching and saving these data. Also, the project has a logging and Redis cache setup; in addition to, Sentry error-tracking system. The main purpose of the project was to provide a Python Django interface, for fetching soccer statistics, to be used as a backend in custom projects.
 ## Getting Started
 
 ### Dependencies
@@ -48,6 +48,9 @@ docker-compose exec web python manage.py migrate
 
 * 0.1
     * Initial Release
+
+## Notes
+The soccer API service needs to be replaced with another working service
 
 ## License
 
